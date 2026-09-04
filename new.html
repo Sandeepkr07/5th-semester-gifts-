@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teachers' Day Contribution 2026</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9933,#ffffff,#138808);
+padding:20px;
+}
+.container{
+max-width:700px;
+margin:auto;
+background:#fff;
+border-radius:20px;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+h1{
+text-align:center;
+color:#ff6600;
+margin:0;
+}
+h3{
+text-align:center;
+color:#0b7d3b;
+margin-bottom:20px;
+}
+.note{
+background:#fff5d6;
+padding:12px;
+border-radius:10px;
+text-align:center;
+font-weight:bold;
+margin-bottom:20px;
+}
+.student{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px;
+margin:8px 0;
+border-radius:10px;
+background:#f4f4f4;
+}
+button{
+background:#0b7d3b;
+color:#fff;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+button:hover{background:#095f2d;}
+footer{
+text-align:center;
+margin-top:20px;
+font-size:14px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>🌸 Happy Teachers' Day 2026 🌸</h1>
+<h3>GEC Bhojpur • CSE Department • 6th Semester</h3>
+
+<div class="note">
+Contribution: ₹100 per Student ❤️
+</div>
+
+<div id="list"></div>
+
+<footer>
+Made with ❤️ by CSE 6th Semester
+</footer>
+
+</div>
+
+<script>
+const students = [
+"Hasib Ansari","Varsha Singh","Diksha Kumari","Muskan Bharti","Masum Pandey","Karan Kumar","Shresth Manoj","Sahil Kumar","Arjun Kumar Gond","Ramanand Kumar","Anshu Kumari","Anil Kumar","Somya Sharma","Soni Kumari","Ayushi Kumari","Akhilesh Kumar","Karan Kumar","Abhijeet Kumar","Shitanshu Kumar","Nitu Kamat","Saurav Kumar","Vikash Kumar","Mukesh Kumar","Abhay Kumar","Sudhanshu Ranjan","Ranjeet Kumar","Khushi Kumari","Anjali Kumari","Deepak Kumar Raj","Kumud Bala","Dakshraj Singh","Anubhav Kumar","Vineet Pandey","Deepak Kumar","Kritika Kumari","Tejaswi Singh","Varun Kumar","Aliya Naaz","Md Liyaquat Hussain","Kumar Aryan","Aditya Kumar","Ajeet Kumar","Kaushal Kumar","Rohit Prasad","Sangharsh Kumar","Mantu Kumar","Saurav Kumar","Chandraveer Kumar","Mohit Kumar Gupta","Manish Kumar","Deepak Kumar","Supriya Kumari","Amritanshu Kumar","Muskan Kumari","Riya Sen","Muskan Kumari","Anjali Kumari","Vishal Kumar","Arun Kumar","Kundan Kumar","Muskan Kumari","Sonam Kumari","Harishankar Sah","Aditya Raj","Sunny Kumar","Amit Kumar","Priyanshu Raj","Sudhanshu Kumar","Tushar Rathor","Roshan Kumar","Vikash Kumar Gupta","Ankit Kumar","Shad Ashhar","Adarsh Kumar","Ankita Kumari","Guriya Kumari","Jai Shree","Sandeep Kumar","Sumant Kumar","Himanshu Kumar","Badal Kumar","Tanu","Anirudh Kumar","Sudhanshu Kumar","Isha Raj","Rohit Kumar Chaudhgary","Muskan Kumari","Anubhav Raj","Anshu Priya"
+];
+
+const upi = "8002000483-3@axl";
+const amount = 100;
+const list = document.getElementById("list");
+
+students.forEach(name=>{
+const div=document.createElement("div");
+div.className="student";
+div.innerHTML=`<span>${name}</span>
+<button onclick="pay('${name}')">Pay ₹100</button>`;
+list.appendChild(div);
+});
+
+function pay(name){
+const url=`upi://pay?pa=${upi}&pn=Teachers Day Contribution&am=${amount}&tn=${encodeURIComponent(name+' - Teachers Day')}`;
+window.location.href=url;
+}
+</script>
+
+</body>
+</html>
