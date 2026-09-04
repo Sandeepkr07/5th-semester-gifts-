@@ -3,114 +3,680 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Teachers' Day Contribution 2026</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#ff9933,#ffffff,#138808);
-padding:20px;
+    margin:0;
+    font-family:Inter,Arial,sans-serif;
+    background:
+        radial-gradient(circle at top left,#ffb347 0,#ff9933 25%,transparent 45%),
+        radial-gradient(circle at bottom right,#4caf50 0,transparent 40%),
+        #f7f8fa;
+    min-height:100vh;
+    color:#1f2937;
 }
-.container{
-max-width:700px;
-margin:auto;
-background:#fff;
-border-radius:20px;
-padding:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+.header{
+    text-align:center;
+    padding:35px 15px 25px;
+    color:white;
 }
-h1{
-text-align:center;
-color:#ff6600;
-margin:0;
+
+.logo{
+    width:72px;
+    height:72px;
+    margin:auto;
+    border-radius:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:36px;
+    background:rgba(255,255,255,.2);
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
-h3{
-text-align:center;
-color:#0b7d3b;
-margin-bottom:20px;
+
+.header h1{
+    margin:16px 0 8px;
+    font-size:30px;
 }
-.note{
-background:#fff5d6;
-padding:12px;
-border-radius:10px;
-text-align:center;
-font-weight:bold;
-margin-bottom:20px;
+
+.header p{
+    margin:0;
+    opacity:.95;
+    font-size:14px;
 }
+
+.wrapper{
+    max-width:720px;
+    margin:auto;
+    padding:0 14px 35px;
+}
+
+.info{
+    background:white;
+    border-radius:22px;
+    padding:20px;
+    box-shadow:0 12px 35px rgba(0,0,0,.10);
+    margin-bottom:18px;
+}
+
+.info-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+}
+
+.info h2{
+    margin:0;
+    font-size:20px;
+}
+
+.badge{
+    background:#e8f7ed;
+    color:#087a3d;
+    padding:7px 12px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.info p{
+    margin:12px 0 0;
+    color:#6b7280;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.search{
+    position:relative;
+    margin:18px 0;
+}
+
+.search input{
+    width:100%;
+    border:0;
+    outline:none;
+    padding:15px 18px 15px 46px;
+    border-radius:16px;
+    background:white;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    font-size:15px;
+}
+
+.search span{
+    position:absolute;
+    left:17px;
+    top:14px;
+    font-size:19px;
+}
+
+.count{
+    font-size:13px;
+    color:#6b7280;
+    margin:0 4px 10px;
+}
+
 .student{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px;
-margin:8px 0;
-border-radius:10px;
-background:#f4f4f4;
+    background:white;
+    padding:13px;
+    margin:9px 0;
+    border-radius:17px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+    transition:.2s;
 }
-button{
-background:#0b7d3b;
-color:#fff;
-border:none;
-padding:8px 14px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
+
+.student:hover{
+    transform:translateY(-2px);
+    box-shadow:0 9px 25px rgba(0,0,0,.10);
 }
-button:hover{background:#095f2d;}
-footer{
-text-align:center;
-margin-top:20px;
-font-size:14px;
-color:#666;
+
+.student-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+}
+
+.number{
+    width:40px;
+    height:40px;
+    border-radius:13px;
+    background:linear-gradient(135deg,#ff9933,#ff7043);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:13px;
+    flex-shrink:0;
+}
+
+.name{
+    font-weight:600;
+    font-size:15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.pay-btn{
+    border:0;
+    background:#087a3d;
+    color:white;
+    padding:10px 14px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+.pay-btn:hover{
+    background:#05632f;
+    transform:scale(1.03);
+}
+
+.footer{
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    padding:25px 0 10px;
+}
+
+/* MODAL */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(6px);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:1000;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.modal{
+    width:100%;
+    max-width:500px;
+    background:white;
+    border-radius:28px 28px 0 0;
+    padding:24px;
+    animation:slideUp .3s ease;
+}
+
+@keyframes slideUp{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.close{
+    float:right;
+    border:0;
+    background:#f1f1f1;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.modal h2{
+    margin:5px 0;
+}
+
+.modal-sub{
+    color:#777;
+    font-size:14px;
+}
+
+.amount{
+    margin:20px 0;
+    background:#f5faf7;
+    border:1px solid #d9eee1;
+    padding:18px;
+    border-radius:18px;
+    text-align:center;
+}
+
+.amount small{
+    color:#777;
+}
+
+.amount strong{
+    display:block;
+    color:#087a3d;
+    font-size:30px;
+    margin-top:3px;
+}
+
+.upi-box{
+    background:#f7f7f7;
+    padding:13px;
+    border-radius:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.upi-text{
+    font-size:13px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.copy{
+    border:0;
+    background:#222;
+    color:white;
+    padding:8px 12px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.main-pay{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:15px;
+    background:linear-gradient(135deg,#087a3d,#12a150);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(8,122,61,.25);
+}
+
+.manual{
+    text-align:center;
+    font-size:12px;
+    color:#888;
+    margin-top:14px;
+    line-height:1.5;
+}
+
+.toast{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%) translateY(80px);
+    background:#222;
+    color:white;
+    padding:11px 17px;
+    border-radius:30px;
+    font-size:13px;
+    opacity:0;
+    transition:.3s;
+    z-index:2000;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:480px){
+    .header h1{
+        font-size:25px;
+    }
+
+    .student{
+        padding:11px;
+    }
+
+    .pay-btn{
+        padding:9px 11px;
+        font-size:12px;
+    }
+
+    .name{
+        font-size:14px;
+    }
 }
 </style>
 </head>
 
 <body>
-<div class="container">
 
-<h1>🌸 Happy Teachers' Day 2026 🌸</h1>
-<h3>GEC Bhojpur • CSE Department • 6th Semester</h3>
+<header class="header">
 
-<div class="note">
-Contribution: ₹100 per Student ❤️
+    <div class="logo">🌸</div>
+
+    <h1>Happy Teachers' Day</h1>
+
+    <p>
+        GEC Bhojpur • CSE Department • 6th Semester
+    </p>
+
+</header>
+
+
+<main class="wrapper">
+
+    <section class="info">
+
+        <div class="info-top">
+            <h2>🎁 Teachers' Day Contribution</h2>
+
+            <span class="badge">₹100 / Student</span>
+        </div>
+
+        <p>
+            Let's make this Teachers' Day special for our amazing teachers ❤️
+            Select your name below and complete your contribution.
+        </p>
+
+    </section>
+
+
+    <div class="search">
+
+        <span>🔎</span>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search your name..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <div class="count" id="count"></div>
+
+    <div id="list"></div>
+
+
+    <div class="footer">
+        Made with ❤️ by CSE 6th Semester
+        <br>
+        GEC Bhojpur
+    </div>
+
+</main>
+
+
+<!-- PAYMENT MODAL -->
+
+<div class="overlay" id="overlay">
+
+    <div class="modal">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <h2>💳 Make Contribution</h2>
+
+        <div class="modal-sub" id="selectedStudent"></div>
+
+        <div class="amount">
+
+            <small>Contribution Amount</small>
+
+            <strong>₹100</strong>
+
+        </div>
+
+
+        <div class="upi-box">
+
+            <div class="upi-text">
+                <b>UPI ID</b><br>
+                <span id="upiDisplay">8002000483-3@axl</span>
+            </div>
+
+            <button class="copy" onclick="copyUPI()">
+                Copy
+            </button>
+
+        </div>
+
+
+        <button class="main-pay" onclick="startPayment()">
+            📱 Pay ₹100 via UPI
+        </button>
+
+
+        <div class="manual">
+            If your UPI app shows a security/decline message,
+            copy the UPI ID above and pay manually from your UPI app.
+        </div>
+
+    </div>
+
 </div>
 
-<div id="list"></div>
 
-<footer>
-Made with ❤️ by CSE 6th Semester
-</footer>
-
+<div class="toast" id="toast">
+    Copied successfully
 </div>
+
 
 <script>
+
 const students = [
-"Hasib Ansari","Varsha Singh","Diksha Kumari","Muskan Bharti","Masum Pandey","Karan Kumar","Shresth Manoj","Sahil Kumar","Arjun Kumar Gond","Ramanand Kumar","Anshu Kumari","Anil Kumar","Somya Sharma","Soni Kumari","Ayushi Kumari","Akhilesh Kumar","Karan Kumar","Abhijeet Kumar","Shitanshu Kumar","Nitu Kamat","Saurav Kumar","Vikash Kumar","Mukesh Kumar","Abhay Kumar","Sudhanshu Ranjan","Ranjeet Kumar","Khushi Kumari","Anjali Kumari","Deepak Kumar Raj","Kumud Bala","Dakshraj Singh","Anubhav Kumar","Vineet Pandey","Deepak Kumar","Kritika Kumari","Tejaswi Singh","Varun Kumar","Aliya Naaz","Md Liyaquat Hussain","Kumar Aryan","Aditya Kumar","Ajeet Kumar","Kaushal Kumar","Rohit Prasad","Sangharsh Kumar","Mantu Kumar","Saurav Kumar","Chandraveer Kumar","Mohit Kumar Gupta","Manish Kumar","Deepak Kumar","Supriya Kumari","Amritanshu Kumar","Muskan Kumari","Riya Sen","Muskan Kumari","Anjali Kumari","Vishal Kumar","Arun Kumar","Kundan Kumar","Muskan Kumari","Sonam Kumari","Harishankar Sah","Aditya Raj","Sunny Kumar","Amit Kumar","Priyanshu Raj","Sudhanshu Kumar","Tushar Rathor","Roshan Kumar","Vikash Kumar Gupta","Ankit Kumar","Shad Ashhar","Adarsh Kumar","Ankita Kumari","Guriya Kumari","Jai Shree","Sandeep Kumar","Sumant Kumar","Himanshu Kumar","Badal Kumar","Tanu","Anirudh Kumar","Sudhanshu Kumar","Isha Raj","Rohit Kumar Chaudhgary","Muskan Kumari","Anubhav Raj","Anshu Priya"
+"Hasib Ansari","Varsha Singh","Diksha Kumari","Muskan Bharti",
+"Masum Pandey","Karan Kumar","Shresth Manoj","Sahil Kumar",
+"Arjun Kumar Gond","Ramanand Kumar","Anshu Kumari","Anil Kumar",
+"Somya Sharma","Soni Kumari","Ayushi Kumari","Akhilesh Kumar",
+"Karan Kumar","Abhijeet Kumar","Shitanshu Kumar","Nitu Kamat",
+"Saurav Kumar","Vikash Kumar","Mukesh Kumar","Abhay Kumar",
+"Sudhanshu Ranjan","Ranjeet Kumar","Khushi Kumari","Anjali Kumari",
+"Deepak Kumar Raj","Kumud Bala","Dakshraj Singh","Anubhav Kumar",
+"Vineet Pandey","Deepak Kumar","Kritika Kumari","Tejaswi Singh",
+"Varun Kumar","Aliya Naaz","Md Liyaquat Hussain","Kumar Aryan",
+"Aditya Kumar","Ajeet Kumar","Kaushal Kumar","Rohit Prasad",
+"Sangharsh Kumar","Mantu Kumar","Saurav Kumar","Chandraveer Kumar",
+"Mohit Kumar Gupta","Manish Kumar","Deepak Kumar","Supriya Kumari",
+"Amritanshu Kumar","Muskan Kumari","Riya Sen","Muskan Kumari",
+"Anjali Kumari","Vishal Kumar","Arun Kumar","Kundan Kumar",
+"Muskan Kumari","Sonam Kumari","Harishankar Sah","Aditya Raj",
+"Sunny Kumar","Amit Kumar","Priyanshu Raj","Sudhanshu Kumar",
+"Tushar Rathor","Roshan Kumar","Vikash Kumar Gupta","Ankit Kumar",
+"Shad Ashhar","Adarsh Kumar","Ankita Kumari","Guriya Kumari",
+"Jai Shree","Sandeep Kumar","Sumant Kumar","Himanshu Kumar",
+"Badal Kumar","Tanu","Anirudh Kumar","Sudhanshu Kumar",
+"Isha Raj","Rohit Kumar Chaudhgary","Muskan Kumari",
+"Anubhav Raj","Anshu Priya"
 ];
 
-const upi = "8002000483-3@axl";
-const amount = 100;
-const list = document.getElementById("list");
 
-students.forEach(name=>{
-const div=document.createElement("div");
-div.className="student";
-div.innerHTML=`<span>${name}</span>
-<button onclick="pay('${name}')">Pay ₹100</button>`;
-list.appendChild(div);
+const UPI_ID = "8002000483-3@axl";
+const AMOUNT = 100;
+
+const list = document.getElementById("list");
+const search = document.getElementById("search");
+const count = document.getElementById("count");
+
+const overlay = document.getElementById("overlay");
+const selectedStudent = document.getElementById("selectedStudent");
+
+let currentStudent = "";
+
+
+/* RENDER STUDENTS */
+
+function renderStudents(filter = ""){
+
+    list.innerHTML = "";
+
+    const filtered = students.filter(name =>
+        name.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    count.innerText =
+        `${filtered.length} student${filtered.length !== 1 ? "s" : ""} found`;
+
+    filtered.forEach((name,index)=>{
+
+        const originalIndex = students.indexOf(name);
+
+        const div = document.createElement("div");
+
+        div.className = "student";
+
+        div.innerHTML = `
+            <div class="student-left">
+
+                <div class="number">
+                    ${originalIndex + 1}
+                </div>
+
+                <div class="name">
+                    ${name}
+                </div>
+
+            </div>
+
+            <button class="pay-btn">
+                Pay ₹100
+            </button>
+        `;
+
+        div.querySelector(".pay-btn").addEventListener("click",()=>{
+            openPayment(name);
+        });
+
+        list.appendChild(div);
+
+    });
+}
+
+
+/* SEARCH */
+
+search.addEventListener("input",()=>{
+    renderStudents(search.value);
 });
 
-function pay(name) {
-    const upiUrl =
-        `upi://pay?pa=${encodeURIComponent("8002000483-3@axl")}` +
-        `&pn=${encodeURIComponent("Teachers Day Contribution")}` +
-        `&am=100.00` +
-        `&cu=INR`;
 
-    window.location.assign(upiUrl);
+/* OPEN PAYMENT */
+
+function openPayment(name){
+
+    currentStudent = name;
+
+    selectedStudent.innerHTML =
+        `Contribution for <b>${name}</b>`;
+
+    overlay.classList.add("show");
 }
-</script>
+
+
+/* CLOSE */
+
+function closeModal(){
+
+    overlay.classList.remove("show");
+
+}
+
+
+/* CLOSE WHEN CLICK OUTSIDE */
+
+overlay.addEventListener("click",(e)=>{
+
+    if(e.target === overlay){
+        closeModal();
+    }
+
+});
+
+
+/* COPY UPI */
+
+async function copyUPI(){
+
+    try{
+
+        await navigator.clipboard.writeText(UPI_ID);
+
+        showToast("UPI ID copied ✓");
+
+    }catch{
+
+        showToast("UPI ID: " + UPI_ID);
+
+    }
+
+}
+
+
+/* PAYMENT */
+
+function startPayment(){
+
+    const transactionNote =
+        currentStudent + " - Teachers Day";
+
+    const params = new URLSearchParams({
+
+        pa: UPI_ID,
+
+        pn: "Teachers Day Contribution",
+
+        am: AMOUNT.toFixed(2),
+
+        cu: "INR",
+
+        tn: transactionNote
+
+    });
+
+    const upiURL =
+        "upi://pay?" + params.toString();
+
+
+    window.location.href = upiURL;
+
+}
+
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },2500);
+
+}
+
+
+/* INITIAL */
+
+renderStudents();
+
 </script>
 
 </body>
