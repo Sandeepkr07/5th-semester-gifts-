@@ -101,17 +101,16 @@ div.innerHTML=`<span>${name}</span>
 list.appendChild(div);
 });
 
-function pay(name){
-    const url =
-        "upi://pay" +
-        "?pa=" + encodeURIComponent(upi) +
-        "&pn=" + encodeURIComponent("Teachers Day Contribution") +
-        "&am=" + encodeURIComponent(amount.toFixed(2)) +
-        "&cu=INR" +
-        "&tn=" + encodeURIComponent(name + " - Teachers Day");
+function pay(name) {
+    const upiUrl =
+        `upi://pay?pa=${encodeURIComponent("8002000483-3@axl")}` +
+        `&pn=${encodeURIComponent("Teachers Day Contribution")}` +
+        `&am=100.00` +
+        `&cu=INR`;
 
-    window.location.href = url;
+    window.location.assign(upiUrl);
 }
+</script>
 </script>
 
 </body>
