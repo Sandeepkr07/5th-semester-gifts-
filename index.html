@@ -102,8 +102,15 @@ list.appendChild(div);
 });
 
 function pay(name){
-const url=`upi://pay?pa=${upi}&pn=Teachers Day Contribution&am=${amount}&tn=${encodeURIComponent(name+' - Teachers Day')}`;
-window.location.href=url;
+    const params = new URLSearchParams({
+        pa: upi,
+        pn: "Teachers Day Contribution",
+        am: amount.toFixed(2),
+        cu: "INR",
+        tn: name + " - Teachers Day"
+    });
+
+    window.location.href = "upi://pay?" + params.toString();
 }
 </script>
 
