@@ -6,54 +6,49 @@
 
 <title>Teachers' Day Contribution 2026</title>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <style>
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
-    font-family:Inter,Arial,sans-serif;
-    background:
-        radial-gradient(circle at top left,#ffb347 0,#ff9933 25%,transparent 45%),
-        radial-gradient(circle at bottom right,#4caf50 0,transparent 40%),
-        #f7f8fa;
+    font-family:Arial,sans-serif;
     min-height:100vh;
-    color:#1f2937;
+    background:linear-gradient(135deg,#ff9933,#fff,#138808);
+    color:#222;
 }
 
 .header{
     text-align:center;
-    padding:35px 15px 25px;
     color:white;
+    padding:32px 15px 25px;
 }
 
 .logo{
     width:72px;
     height:72px;
     margin:auto;
-    border-radius:22px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:36px;
+    border-radius:22px;
     background:rgba(255,255,255,.2);
-    backdrop-filter:blur(12px);
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    font-size:36px;
+    backdrop-filter:blur(10px);
 }
 
 .header h1{
-    margin:16px 0 8px;
-    font-size:30px;
+    margin:15px 0 7px;
+    font-size:28px;
 }
 
 .header p{
     margin:0;
-    opacity:.95;
     font-size:14px;
 }
 
-.wrapper{
+.container{
     max-width:720px;
     margin:auto;
     padding:0 14px 35px;
@@ -63,113 +58,108 @@ body{
     background:white;
     border-radius:22px;
     padding:20px;
-    box-shadow:0 12px 35px rgba(0,0,0,.10);
-    margin-bottom:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
 .info-top{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    gap:12px;
+    justify-content:space-between;
+    gap:10px;
 }
 
 .info h2{
     margin:0;
-    font-size:20px;
+    font-size:19px;
 }
 
 .badge{
-    background:#e8f7ed;
+    background:#e9f8ef;
     color:#087a3d;
     padding:7px 12px;
-    border-radius:30px;
+    border-radius:20px;
     font-size:13px;
     font-weight:bold;
-    white-space:nowrap;
 }
 
 .info p{
-    margin:12px 0 0;
-    color:#6b7280;
+    color:#777;
     font-size:14px;
     line-height:1.5;
+    margin-bottom:0;
 }
 
 .search{
     position:relative;
-    margin:18px 0;
-}
-
-.search input{
-    width:100%;
-    border:0;
-    outline:none;
-    padding:15px 18px 15px 46px;
-    border-radius:16px;
-    background:white;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-    font-size:15px;
+    margin:18px 0 10px;
 }
 
 .search span{
     position:absolute;
-    left:17px;
-    top:14px;
-    font-size:19px;
+    left:16px;
+    top:13px;
+}
+
+.search input{
+    width:100%;
+    padding:14px 18px 14px 45px;
+    border:0;
+    outline:none;
+    border-radius:16px;
+    font-size:15px;
+    box-shadow:0 7px 25px rgba(0,0,0,.09);
 }
 
 .count{
     font-size:13px;
-    color:#6b7280;
-    margin:0 4px 10px;
+    color:#666;
+    margin:10px 5px;
 }
 
 .student{
-    background:white;
-    padding:13px;
-    margin:9px 0;
-    border-radius:17px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:12px;
-    box-shadow:0 5px 18px rgba(0,0,0,.06);
+    gap:10px;
+    background:white;
+    padding:12px;
+    margin:9px 0;
+    border-radius:17px;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
     transition:.2s;
 }
 
 .student:hover{
     transform:translateY(-2px);
-    box-shadow:0 9px 25px rgba(0,0,0,.10);
 }
 
 .student-left{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:11px;
     min-width:0;
 }
 
 .number{
     width:40px;
     height:40px;
-    border-radius:13px;
-    background:linear-gradient(135deg,#ff9933,#ff7043);
-    color:white;
+    flex-shrink:0;
     display:flex;
     align-items:center;
     justify-content:center;
+    border-radius:13px;
+    background:linear-gradient(135deg,#ff9933,#ff7043);
+    color:white;
     font-weight:bold;
     font-size:13px;
-    flex-shrink:0;
 }
 
 .name{
-    font-weight:600;
     font-size:15px;
-    white-space:nowrap;
+    font-weight:600;
     overflow:hidden;
     text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .pay-btn{
@@ -177,21 +167,20 @@ body{
     background:#087a3d;
     color:white;
     padding:10px 14px;
-    border-radius:12px;
+    border-radius:11px;
     font-weight:bold;
     cursor:pointer;
     white-space:nowrap;
-    transition:.2s;
 }
 
-.pay-btn:hover{
-    background:#05632f;
-    transform:scale(1.03);
+.pay-btn.paid{
+    background:#777;
+    cursor:default;
 }
 
 .footer{
     text-align:center;
-    color:#777;
+    color:#666;
     font-size:13px;
     padding:25px 0 10px;
 }
@@ -201,8 +190,8 @@ body{
 .overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.55);
-    backdrop-filter:blur(6px);
+    background:rgba(0,0,0,.58);
+    backdrop-filter:blur(5px);
     display:none;
     align-items:flex-end;
     justify-content:center;
@@ -217,29 +206,27 @@ body{
     width:100%;
     max-width:500px;
     background:white;
-    border-radius:28px 28px 0 0;
-    padding:24px;
-    animation:slideUp .3s ease;
+    border-radius:27px 27px 0 0;
+    padding:22px;
+    max-height:92vh;
+    overflow:auto;
+    animation:up .3s ease;
 }
 
-@keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
-    to{
-        transform:translateY(0);
-    }
+@keyframes up{
+    from{transform:translateY(100%)}
+    to{transform:translateY(0)}
 }
 
 .close{
     float:right;
-    border:0;
-    background:#f1f1f1;
     width:34px;
     height:34px;
+    border:0;
     border-radius:50%;
+    background:#eee;
+    font-size:20px;
     cursor:pointer;
-    font-size:18px;
 }
 
 .modal h2{
@@ -252,12 +239,12 @@ body{
 }
 
 .amount{
-    margin:20px 0;
-    background:#f5faf7;
-    border:1px solid #d9eee1;
-    padding:18px;
-    border-radius:18px;
+    margin:17px 0;
+    padding:15px;
     text-align:center;
+    background:#f3faf6;
+    border:1px solid #d8ecdf;
+    border-radius:17px;
 }
 
 .amount small{
@@ -267,25 +254,57 @@ body{
 .amount strong{
     display:block;
     color:#087a3d;
-    font-size:30px;
+    font-size:29px;
     margin-top:3px;
 }
 
-.upi-box{
-    background:#f7f7f7;
-    padding:13px;
-    border-radius:14px;
+.qr-section{
+    text-align:center;
+    background:#f8faf9;
+    border:1px solid #dceee3;
+    border-radius:20px;
+    padding:15px;
+}
+
+.qr-title{
+    color:#087a3d;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+#qrcode{
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
+}
+
+#qrcode img{
+    width:210px !important;
+    height:210px !important;
+    padding:9px;
+    background:white;
+    border-radius:14px;
+}
+
+.qr-section p{
+    margin:9px 0 0;
+    color:#777;
+    font-size:12px;
+}
+
+.upi-box{
+    display:flex;
     align-items:center;
+    justify-content:space-between;
     gap:10px;
-    margin-bottom:15px;
+    margin:15px 0;
+    padding:12px;
+    background:#f5f5f5;
+    border-radius:13px;
 }
 
 .upi-text{
-    font-size:13px;
+    font-size:12px;
     overflow:hidden;
-    text-overflow:ellipsis;
 }
 
 .copy{
@@ -299,33 +318,44 @@ body{
 
 .main-pay{
     width:100%;
-    padding:15px;
     border:0;
-    border-radius:15px;
-    background:linear-gradient(135deg,#087a3d,#12a150);
+    padding:15px;
+    border-radius:14px;
+    background:#087a3d;
     color:white;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
-    box-shadow:0 8px 20px rgba(8,122,61,.25);
 }
 
-.manual{
+.paid-btn{
+    width:100%;
+    margin-top:10px;
+    border:1px solid #087a3d;
+    padding:13px;
+    border-radius:14px;
+    background:white;
+    color:#087a3d;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.warning{
     text-align:center;
-    font-size:12px;
     color:#888;
-    margin-top:14px;
-    line-height:1.5;
+    font-size:11px;
+    line-height:1.4;
+    margin-top:12px;
 }
 
 .toast{
     position:fixed;
     bottom:20px;
     left:50%;
-    transform:translateX(-50%) translateY(80px);
+    transform:translate(-50%,80px);
     background:#222;
     color:white;
-    padding:11px 17px;
+    padding:11px 18px;
     border-radius:30px;
     font-size:13px;
     opacity:0;
@@ -335,26 +365,13 @@ body{
 
 .toast.show{
     opacity:1;
-    transform:translateX(-50%) translateY(0);
+    transform:translate(-50%,0);
 }
 
 @media(max-width:480px){
-    .header h1{
-        font-size:25px;
-    }
-
-    .student{
-        padding:11px;
-    }
-
-    .pay-btn{
-        padding:9px 11px;
-        font-size:12px;
-    }
-
-    .name{
-        font-size:14px;
-    }
+    .header h1{font-size:25px}
+    .badge{font-size:11px}
+    .pay-btn{padding:9px 11px;font-size:12px}
 }
 </style>
 </head>
@@ -365,51 +382,42 @@ body{
 
     <div class="logo">🌸</div>
 
-    <h1>Happy Teachers' Day</h1>
+    <h1>Happy Teachers' Day 2026</h1>
 
-    <p>
-        GEC Bhojpur • CSE Department • 6th Semester
-    </p>
+    <p>GEC Bhojpur • CSE Department • 6th Semester</p>
 
 </header>
 
 
-<main class="wrapper">
+<div class="container">
 
-    <section class="info">
+    <div class="info">
 
         <div class="info-top">
             <h2>🎁 Teachers' Day Contribution</h2>
-
-            <span class="badge">₹100 / Student</span>
+            <span class="badge">₹100</span>
         </div>
 
         <p>
             Let's make this Teachers' Day special for our amazing teachers ❤️
-            Select your name below and complete your contribution.
+            Select your name and contribute ₹100.
         </p>
-
-    </section>
-
-
-    <div class="search">
-
-        <span>🔎</span>
-
-        <input
-            type="text"
-            id="search"
-            placeholder="Search your name..."
-            autocomplete="off"
-        >
 
     </div>
 
 
+    <div class="search">
+        <span>🔎</span>
+        <input
+            id="search"
+            type="text"
+            placeholder="Search your name..."
+        >
+    </div>
+
     <div class="count" id="count"></div>
 
     <div id="list"></div>
-
 
     <div class="footer">
         Made with ❤️ by CSE 6th Semester
@@ -417,7 +425,7 @@ body{
         GEC Bhojpur
     </div>
 
-</main>
+</div>
 
 
 <!-- PAYMENT MODAL -->
@@ -428,15 +436,28 @@ body{
 
         <button class="close" onclick="closeModal()">×</button>
 
-        <h2>💳 Make Contribution</h2>
+        <h2>💳 Contribution Payment</h2>
 
         <div class="modal-sub" id="selectedStudent"></div>
 
+
         <div class="amount">
-
             <small>Contribution Amount</small>
-
             <strong>₹100</strong>
+        </div>
+
+
+        <div class="qr-section">
+
+            <div class="qr-title">
+                📷 Scan & Pay ₹100
+            </div>
+
+            <div id="qrcode"></div>
+
+            <p>
+                Scan using Google Pay, PhonePe, Paytm or any UPI app
+            </p>
 
         </div>
 
@@ -445,7 +466,7 @@ body{
 
             <div class="upi-text">
                 <b>UPI ID</b><br>
-                <span id="upiDisplay">8002000483-3@axl</span>
+                <span id="upiDisplay">adarshjigyashu@axl</span>
             </div>
 
             <button class="copy" onclick="copyUPI()">
@@ -459,10 +480,14 @@ body{
             📱 Pay ₹100 via UPI
         </button>
 
+        <button class="paid-btn" onclick="markPaid()">
+            ✓ I Have Completed Payment
+        </button>
 
-        <div class="manual">
-            If your UPI app shows a security/decline message,
-            copy the UPI ID above and pay manually from your UPI app.
+
+        <div class="warning">
+            Payment status cannot be verified by this webpage.
+            Only select "I Have Completed Payment" after actually paying.
         </div>
 
     </div>
@@ -470,9 +495,7 @@ body{
 </div>
 
 
-<div class="toast" id="toast">
-    Copied successfully
-</div>
+<div class="toast" id="toast"></div>
 
 
 <script>
@@ -503,23 +526,21 @@ const students = [
 "Anubhav Raj","Anshu Priya"
 ];
 
-
-const UPI_ID = "8002000483-3@axl";
+const UPI_ID = "adarshjigyashu@axl";
 const AMOUNT = 100;
 
 const list = document.getElementById("list");
 const search = document.getElementById("search");
 const count = document.getElementById("count");
-
 const overlay = document.getElementById("overlay");
 const selectedStudent = document.getElementById("selectedStudent");
 
 let currentStudent = "";
 
 
-/* RENDER STUDENTS */
+/* STUDENT LIST */
 
-function renderStudents(filter = ""){
+function renderStudents(filter=""){
 
     list.innerHTML = "";
 
@@ -527,22 +548,19 @@ function renderStudents(filter = ""){
         name.toLowerCase().includes(filter.toLowerCase())
     );
 
-    count.innerText =
+    count.textContent =
         `${filtered.length} student${filtered.length !== 1 ? "s" : ""} found`;
 
-    filtered.forEach((name,index)=>{
-
-        const originalIndex = students.indexOf(name);
+    filtered.forEach(name => {
 
         const div = document.createElement("div");
-
         div.className = "student";
 
         div.innerHTML = `
             <div class="student-left">
 
                 <div class="number">
-                    ${originalIndex + 1}
+                    ${students.indexOf(name)+1}
                 </div>
 
                 <div class="name">
@@ -556,19 +574,18 @@ function renderStudents(filter = ""){
             </button>
         `;
 
-        div.querySelector(".pay-btn").addEventListener("click",()=>{
+        div.querySelector(".pay-btn").onclick = () => {
             openPayment(name);
-        });
+        };
 
         list.appendChild(div);
-
     });
 }
 
 
 /* SEARCH */
 
-search.addEventListener("input",()=>{
+search.addEventListener("input", () => {
     renderStudents(search.value);
 });
 
@@ -582,6 +599,22 @@ function openPayment(name){
     selectedStudent.innerHTML =
         `Contribution for <b>${name}</b>`;
 
+    const paymentURL =
+        "upi://pay" +
+        "?pa=" + encodeURIComponent(UPI_ID) +
+        "&pn=" + encodeURIComponent("Teachers Day Contribution") +
+        "&am=" + AMOUNT.toFixed(2) +
+        "&cu=INR";
+
+    document.getElementById("qrcode").innerHTML = "";
+
+    new QRCode(document.getElementById("qrcode"),{
+        text:paymentURL,
+        width:210,
+        height:210,
+        correctLevel:QRCode.CorrectLevel.M
+    });
+
     overlay.classList.add("show");
 }
 
@@ -589,20 +622,13 @@ function openPayment(name){
 /* CLOSE */
 
 function closeModal(){
-
     overlay.classList.remove("show");
-
 }
 
-
-/* CLOSE WHEN CLICK OUTSIDE */
-
-overlay.addEventListener("click",(e)=>{
-
+overlay.addEventListener("click",function(e){
     if(e.target === overlay){
         closeModal();
     }
-
 });
 
 
@@ -618,40 +644,67 @@ async function copyUPI(){
 
     }catch{
 
-        showToast("UPI ID: " + UPI_ID);
+        showToast(UPI_ID);
 
     }
-
 }
 
 
-/* PAYMENT */
+/* DIRECT UPI PAYMENT */
 
 function startPayment(){
 
-    const transactionNote =
-        currentStudent + " - Teachers Day";
+    const paymentURL =
+        "upi://pay" +
+        "?pa=" + encodeURIComponent(UPI_ID) +
+        "&pn=" + encodeURIComponent("Teachers Day Contribution") +
+        "&am=" + AMOUNT.toFixed(2) +
+        "&cu=INR";
 
-    const params = new URLSearchParams({
+    window.location.href = paymentURL;
+}
 
-        pa: UPI_ID,
 
-        pn: "Teachers Day Contribution",
+/* MARK PAID */
 
-        am: AMOUNT.toFixed(2),
+function markPaid(){
 
-        cu: "INR",
+    if(!currentStudent) return;
 
-        tn: transactionNote
+    localStorage.setItem(
+        "paid_" + currentStudent,
+        "true"
+    );
+
+    closeModal();
+
+    showToast(
+        currentStudent + " marked as paid ✓"
+    );
+
+    renderStudents(search.value);
+}
+
+
+/* SHOW PAID STATUS */
+
+function updatePaidButtons(){
+
+    document.querySelectorAll(".student").forEach(card => {
+
+        const name =
+            card.querySelector(".name").textContent;
+
+        const button =
+            card.querySelector(".pay-btn");
+
+        if(localStorage.getItem("paid_" + name) === "true"){
+
+            button.textContent = "✓ Paid";
+            button.classList.add("paid");
+        }
 
     });
-
-    const upiURL =
-        "upi://pay?" + params.toString();
-
-
-    window.location.href = upiURL;
-
 }
 
 
@@ -662,14 +715,13 @@ function showToast(message){
     const toast =
         document.getElementById("toast");
 
-    toast.innerText = message;
+    toast.textContent = message;
 
     toast.classList.add("show");
 
     setTimeout(()=>{
         toast.classList.remove("show");
     },2500);
-
 }
 
 
